@@ -1,9 +1,26 @@
 import 'package:design_task/constants/colors_pallete.dart';
 import 'package:design_task/widgets/notifications_and_avatar.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:stylish_bottom_bar/model/bar_items.dart';
+import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  dynamic selected;
+  PageController controller = PageController();
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,16 +29,85 @@ class HomeScreen extends StatelessWidget {
         shadowColor: ColorPallete.fontsColor.withOpacity(0.2),
         title: const Text(
           "Overview",
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(
+              color: Colors.black,
+              fontFamily: "ABCGinto",
+              fontWeight: FontWeight.w500),
         ),
         backgroundColor: ColorPallete.whiteColor,
         actions: notificationsAndAvatar(),
       ),
-      body: const Center(
-          child: Text(
-        "Home page",
-        textScaleFactor: 2,
-      )),
+      body: SafeArea(
+        child: PageView(
+          controller: controller,
+          children: const [
+            Center(child: Text('Home')),
+            Center(child: Text('Search')),
+            Center(child: Text('Watch')),
+            Center(child: Text('Gallery')),
+          ],
+        ),
+      ),
+      bottomNavigationBar: getNavBar(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        backgroundColor: ColorPallete.secondaryColor,
+        child: const Icon(
+          CupertinoIcons.add,
+          color: Colors.white,
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+    );
+  }
+
+  StylishBottomBar getNavBar() {
+    return StylishBottomBar(
+      items: [
+        BottomBarItem(
+            icon: const Icon(Icons.dashboard),
+            selectedIcon: const Icon(Icons.dashboard),
+            selectedColor: ColorPallete.secondaryColor,
+            title: const Text('Home')),
+        BottomBarItem(
+            icon: const Icon(Icons.search),
+            selectedIcon: const Icon(Icons.search_outlined),
+            selectedColor: ColorPallete.secondaryColor,
+            title: const Text('Search')),
+        BottomBarItem(
+            icon: const Icon(
+              Icons.remove_red_eye_outlined,
+            ),
+            selectedIcon: const Icon(
+              Icons.style,
+            ),
+            selectedColor: ColorPallete.secondaryColor,
+            title: const Text('Watch')),
+        BottomBarItem(
+            icon: const Icon(
+              Icons.image,
+            ),
+            selectedIcon: const Icon(
+              Icons.image,
+            ),
+            selectedColor: ColorPallete.secondaryColor,
+            title: const Text('Gallery')),
+      ],
+      hasNotch: true,
+      currentIndex: selected ?? 0,
+      onTap: (index) {
+        controller.jumpToPage(index);
+        setState(() {
+          selected = index;
+        });
+      },
+      fabLocation: StylishBarFabLocation.center,
+      option: AnimatedBarOptions(
+        // iconSize: 32,
+        barAnimation: BarAnimation.fade,
+        iconStyle: IconStyle.animated,
+        // opacity: 0.3,
+      ),
     );
   }
 }

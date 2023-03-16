@@ -135,6 +135,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.1.1"
+  stylish_bottom_bar:
+    dependency: "direct main"
+    description:
+      name: stylish_bottom_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
   term_glyph:
     dependency: transitive
     description:
@@ -158,3 +165,4 @@ packages:
     version: "2.1.2"
 sdks:
   dart: ">=2.18.6 <3.0.0"
+  flutter: ">=1.17.0"
