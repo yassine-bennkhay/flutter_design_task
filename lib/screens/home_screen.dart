@@ -1,5 +1,6 @@
 import 'package:design_task/constants/colors_pallete.dart';
 import 'package:design_task/widgets/notifications_and_avatar.dart';
+import 'package:design_task/widgets/overview_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';
@@ -26,7 +27,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        shadowColor: ColorPallete.fontsColor.withOpacity(0.2),
+        shadowColor: ColorPallete.fontsColor.withOpacity(0.01),
         title: const Text(
           "Overview",
           style: TextStyle(
@@ -38,14 +39,18 @@ class _HomeScreenState extends State<HomeScreen> {
         actions: notificationsAndAvatar(),
       ),
       body: SafeArea(
-        child: PageView(
-          controller: controller,
-          children: const [
-            Center(child: Text('Home')),
-            Center(child: Text('Search')),
-            Center(child: Text('Watch')),
-            Center(child: Text('Gallery')),
-          ],
+        child: Container(
+          color: const Color(0xffF2F2F2),
+          child: PageView(
+            physics: const NeverScrollableScrollPhysics(),
+            controller: controller,
+            children: const <Widget>[
+              OverviewWidget(),
+              Center(child: Text('Search')),
+              Center(child: Text('Watch')),
+              Center(child: Text('Gallery')),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: getNavBar(),
@@ -82,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Icons.style,
             ),
             selectedColor: ColorPallete.secondaryColor,
-            title: const Text('Watch')),
+            title: const Text('Observations')),
         BottomBarItem(
             icon: const Icon(
               Icons.image,
