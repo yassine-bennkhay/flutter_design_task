@@ -1,4 +1,5 @@
 import 'package:design_task/widgets/observations_chart.dart';
+import 'package:design_task/widgets/pie_chart.dart';
 import 'package:flutter/material.dart';
 import '../constants/sizedbox_spacer.dart';
 import '../widgets/filter_slider.dart';
@@ -59,6 +60,7 @@ class _OverviewWidgetState extends State<OverviewWidget> {
         const SizedBoxSpacer(),
         FilterSlider(stringFilters: stringFilters),
         ObservationChart(),
+        const CustomPieChart(),
       ]),
     );
   }
