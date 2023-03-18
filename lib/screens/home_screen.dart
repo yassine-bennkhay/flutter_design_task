@@ -1,10 +1,13 @@
 import 'package:design_task/constants/colors_pallete.dart';
+import 'package:design_task/screens/manual_alert_screen.dart';
 import 'package:design_task/widgets/notifications_and_avatar.dart';
 import 'package:design_task/widgets/overview_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:stylish_bottom_bar/model/bar_items.dart';
 import 'package:stylish_bottom_bar/stylish_bottom_bar.dart';
+
+import '../widgets/custom_page_route.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -55,7 +58,10 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: getNavBar(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, CustomPageRoute(page: const ManualAlertScreen()));
+        },
         backgroundColor: ColorPallete.secondaryColor,
         child: const Icon(
           CupertinoIcons.add,
