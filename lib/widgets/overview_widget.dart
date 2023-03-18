@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import '../constants/sizedbox_spacer.dart';
+import '../widgets/filter_slider.dart';
+import '../widgets/dashboard_slider.dart';
 
 class OverviewWidget extends StatefulWidget {
   const OverviewWidget({super.key});
-
   @override
   State<OverviewWidget> createState() => _OverviewWidgetState();
 }
@@ -36,63 +38,25 @@ class _OverviewWidgetState extends State<OverviewWidget> {
     2,
     1,
   ];
+  List<String> stringFilters = [
+    "Daily",
+    "Safety",
+    "Excellent",
+    "Work clothes E.P.I",
+    "Bad condition",
+  ];
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(children: [
-        const SizedBox(
-          height: 20,
-        ),
-        SizedBox(
-          width: double.infinity,
-          height: 60,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: 5,
-            itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
-                child: Container(
-                  width: 220,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: Colors.white,
-                  ),
-                  child: Row(
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(left: 10),
-                        child: Container(
-                          width: 40,
-                          height: 40,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: containerColors[index],
-                          ),
-                          child: Center(
-                            child: Image.asset(
-                              iconPaths[index],
-                              width: 50,
-                              height: 50,
-                            ),
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      NumberAndStatus(
-                        numbers: numbers,
-                        status: status,
-                        index: index,
-                      ),
-                    ],
-                  ),
-                ),
-              );
-            },
-          ),
-        )
+        const SizedBoxSpacer(),
+        DashboardSlider(
+            containerColors: containerColors,
+            iconPaths: iconPaths,
+            numbers: numbers,
+            status: status),
+        const SizedBoxSpacer(),
+        FilterSlider(stringFilters: stringFilters),
       ]),
     );
   }
