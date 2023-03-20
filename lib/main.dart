@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'Design Task',
 
       debugShowCheckedModeBanner: false,
-      initialRoute: '/', // Set your initial route here
+      initialRoute: '/', 
       routes: {
         '/': (context) => const SplashScreen(),
         Routes.manualAlertRoute: (context) => const ManualAlertScreen(),
