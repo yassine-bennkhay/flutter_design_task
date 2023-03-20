@@ -1,16 +1,9 @@
-# design_task
 
-A new Flutter project.
+## Screenshots
+A modern app design with Flutter.
+If you like it, don't forget to start the repo:)
+#
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![App Screenshot](https://github.com/yassine-bennkhay/flutter_design_task/blob/main/screenshots/1.png?raw=true)
+![App Screenshot](https://github.com/yassine-bennkhay/flutter_design_task/blob/main/screenshots/2.png?raw=true)
+![App Screenshot](https://github.com/yassine-bennkhay/flutter_design_task/blob/main/screenshots/3.png?raw=true)
