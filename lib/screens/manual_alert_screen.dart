@@ -2,7 +2,7 @@ import 'package:design_task/widgets/toggleable_row.dart';
 import 'package:flutter/material.dart';
 import '../constants/colors_pallete.dart';
 import '../widgets/custom_drop_down_button_form_field.dart';
-import '../widgets/number_selector.dart';
+import '../widgets/number_picker.dart';
 import '../widgets/title_and_add_button.dart';
 import '../widgets/title_and_info_optional_icon.dart';
 
