@@ -1,8 +1,8 @@
+import 'package:design_task/widgets/filter_slider.dart';
 import 'package:design_task/widgets/observations_chart.dart';
 import 'package:design_task/widgets/pie_chart.dart';
 import 'package:flutter/material.dart';
 import '../constants/sizedbox_spacer.dart';
-import '../widgets/filter_slider.dart';
 import '../widgets/dashboard_slider.dart';
 
 class OverviewWidget extends StatefulWidget {
